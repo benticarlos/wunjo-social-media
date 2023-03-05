@@ -18,7 +18,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Route config load
-app.get('/test', (req, res) => {
+const userRoutes = require('./routes/user')
+const publicationRoutes = require('./routes/publication')
+const followRoutes = require('./routes/follow')
+
+app.use('/api', userRoutes)
+app.use('/api', publicationRoutes)
+app.use('/api', followRoutes)
+
+// Test route
+app.get('/api/test', (req, res) => {
     return res.status(200).json(
         {
             "id": 1,
