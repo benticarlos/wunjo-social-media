@@ -3,7 +3,7 @@ const router = express.Router()
 const UserController = require('../controllers/user')
 
 // Route
-router.get("/test-user", UserController.testUser)
+router.post("/register", UserController.register)
 
 // Router export
 module.exports = router
